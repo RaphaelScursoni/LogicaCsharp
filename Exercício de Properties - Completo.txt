@@ -1,0 +1,87 @@
+using System;
+
+namespace treino {
+    class Program {
+        static void Main(string[] args) {
+
+            Conta conta = new Conta();
+            Console.WriteLine("Entre com o número da conta: ");
+            conta.Numero = int.Parse(Console.ReadLine());
+            Console.WriteLine("Entre com o nome do titular da conta: ");
+            conta.Titular = Console.ReadLine();
+            Console.WriteLine("Haverá depósitoo inicial? (s/n)");
+            string depInicial = Console.ReadLine();
+
+            if (depInicial == "s") {
+                Console.WriteLine("Digite o valor do depósito: ");
+                conta.Saldo = double.Parse(Console.ReadLine());
+            }
+            else { conta.Saldo = 0.00; }
+            Console.WriteLine("Dados da conta: " + conta);
+
+            Console.WriteLine("Entre com um valor para depósito: ");
+            int valDeposito = int.Parse(Console.ReadLine());
+            conta.Deposito(valDeposito);
+            Console.WriteLine("Dados da conta atualizados: " + conta);
+            Console.WriteLine("Entre com um valor para saque: ");
+            int valSaque = int.Parse(Console.ReadLine());
+            conta.Saque(valSaque);
+            Console.WriteLine("Dados da conta atualziados: " + conta);
+
+        }
+    }
+}
+
+
+using System.ComponentModel;
+using System.Globalization;
+
+namespace treino {
+    class Conta {
+        private string _titular;
+        public int Numero { get; set; }
+        //AUTO PROPERT
+        public double Saldo { get; set; }
+
+        public Conta(string nome, int numero) {
+            _titular = nome;
+            Numero = numero;
+        }
+
+        public Conta() { }
+
+        public Conta(string nome, int numero, double saldo) {
+            _titular = nome;
+            Numero = numero;
+            Saldo = saldo;
+        }
+
+        public string Titular {
+            get { return _titular; }
+            set {
+                if (value != null && value.Length > 1) {
+                    _titular = value;
+                }
+            }
+        }
+
+        public double Deposito(double deposito) {
+            return Saldo += deposito;
+        }
+        public double Saque(double saque) {
+            return Saldo -= saque + 5;
+        }
+
+        public override string ToString() {
+            return 
+                "Número: "
+                + Numero
+                + ", Titular: "
+                + _titular
+                + ", Saldo: $ "
+                + Saldo;
+        }
+
+    }
+}
+

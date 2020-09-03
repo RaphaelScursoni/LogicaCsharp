@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace progresso {
+    class Produto {
+
+        public string Nome { get; set; }
+        public double Preco { get; set; }
+
+
+    }
+}
+
+
+using System;
+using System.Globalization;
+
+namespace progresso {
+    class Program {
+        static void Main(string[] args) {
+
+            Console.WriteLine("Digite quantos produtos terá: ");
+            int n = int.Parse(Console.ReadLine());
+
+            Produto[] vet = new Produto[n];
+
+            //Realiza a leitura dos dados para retornar corretamente cada produto criado.
+
+            for (int i = 0; i < n; i++) {
+                Console.WriteLine("Digite o nome do produto: ");
+                string nome = Console.ReadLine();
+                Console.WriteLine("Digite o preço do produto: ");
+                double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                vet[i] = new Produto { Nome = nome, Preco = preco };
+            }
+
+            //For para percorrer os produtos, somar todos os preços para no fim conseguir a média.
+            double soma = 0.0;
+            for (int i = 0; i < n; i++) {
+                soma += vet[i].Preco;
+            }
+
+            double avg = soma / n;
+            Console.WriteLine("Média dos preços: " + avg.ToString("F2", CultureInfo.InvariantCulture));
+
+
+        }
+    }
+}

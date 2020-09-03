@@ -1,0 +1,57 @@
+using System.ComponentModel;
+using System.Globalization;
+
+namespace treino {
+    class Produto {
+        private string _nome;
+        private double _preco;
+        private int _quantidade;
+
+        public Produto() { }
+
+        public Produto(string nome, double preco) {
+            _nome = nome;
+            _preco = preco;
+        }
+
+        public double Preco {
+            get { return _preco; }
+        }
+
+        public double Quantidade {
+            get { return _quantidade; }
+        }
+
+        public string Nome {
+            get { return _nome; }
+            set {
+                if (value != null && value.Length > 1) {
+                    _nome = value;
+                }
+            }
+        }
+
+        public double ValorTotalEmEstoque() {
+            return _preco * _quantidade;
+        }
+
+        public void AdicionarProduto(int quantidade) {
+             _quantidade += quantidade;
+        }
+        public void RemoverProduto(int quantidade) {
+            _quantidade -= quantidade;
+        }
+
+        public override string ToString() {
+            return "Produto: "
+                + _nome 
+                + ", Quantidade: "
+                + _quantidade
+                + ", de valor $" 
+                + _preco.ToString("F2", CultureInfo.InvariantCulture)
+                + ", representado no estoque agora um valor de $"
+                + ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture);
+        }
+
+    }
+}

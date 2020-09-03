@@ -1,0 +1,85 @@
+CERTIFICADO FATEC:
+Uso profissional do GitHub
+
+Significado de Git: Uma "plataforma", uma linguagem de programação.
+GIT UNE FOTOS, ECONOMIZANDO MUITOS DADOS, NÃO UTILIZA-SE ARQUIVOS E SIM IMAGENS "MICROINFORMAÇÕES"
+
+Significado de Github:
+Plataforma que oferece diversas funcionalidades aplicadas ao GIT.
+
+Manter o sistema de forma atemporal, al qual, é possivel realizar edições
+ilimitadas, nelas, é feito um beckup para toda edição, assim, tem-se o
+código livre para edição em versões atualizadas e desatualizadas(anterior).
+
+Criação do GitHub: Porque aprender Github?
+
+Utilização do software para compartilhar a execução de um código fonte
+com a edição compartilhada, disponível online.
+
+Criação de conteúdo e upload no GITHUB
+
+	git init
+	git clone
+	git add
+	git comit -m "msg"
+	git pull
+	git push
+	git reset
+	git revert
+	git branch <branch name>
+	git branch -d (deletar branch local)
+	git branch -a (limitar branch)
+	git branch --short =- committerdate (ordem decrescente)
+	git branch --short = committerdate (ordem decrescente)
+	git checkout
+	git checkout <branch name> (mudar nome da branch)
+
+Git comands - C# Course
+  
+  git init
+  git config --global user.name "Seu Nome"
+  git config --global user.email "Seu Email"
+
+  git status
+  git add .
+  git commit -m "msg"
+  git log
+  git log --oneline
+-------
+VIM para edição
+	Teclar 'esc' e digitar :q!
+	Para sair.
+-----
+Descartar todas as modificações.
+  git clean -df
+  git checkout -- .
+-----
+Remover o último commit mantendo as alterações nos arquivos:
+  git reset --soft HEAD~1
+
+Remover o último commit INCLUSIVE as alterações nos arquivos (PERIGO!):
+  git reset --hard HEAD~1
+-----
+Navegar entre commits, alterando os arquivos temporariamente:
+  git checkout <código do commit>
+
+Voltar para o último commit:
+  git checkout <nome do branch>
+-----
+Associar nosso repositório local ao repositório remoto online
+  git remote add origin <URI do repositório remoto>
+
+Associar o repositório local a um outro repositório remoto mantendo o mesmo apelido:
+git remote set-url origin <URI do repositório remoto>
+-----
+  git push -u origin master //Adiciona o repositório local site do github
+
+Para atualizar o GitHub com os códigos modificados 
+
+  git push //Digitar, apenas
+---------------
+Copiar o repositório do GitHub, inclusive com o histórico de commits:
+  git clone <URI do repositório remoto>
+------
+Comando para atualizar seu repositório local, receber as atualizações do site para o local.
+  git pull origin master

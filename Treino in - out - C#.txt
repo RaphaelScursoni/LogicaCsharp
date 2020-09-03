@@ -1,0 +1,27 @@
+using System;
+
+namespace treino_inicial {
+    class Program {
+        static void Main(string[] args) {
+
+            int num1 = int.Parse(Console.ReadLine());
+            int num2= int.Parse(Console.ReadLine());
+            int soma;
+            int subtracao;
+            int divisao;
+            int produto;
+
+            soma = num1 + num2;
+            subtracao = num1 - num2;
+            produto = num1 * num2;
+            divisao = num1 / num2;
+
+            Console.WriteLine("Soma:" + soma);
+            Console.WriteLine("Divisao: " + divisao);
+            Console.WriteLine("Produto: " + produto);
+            Console.WriteLine("Subtração: " + subtracao);
+
+
+        }
+    }
+}

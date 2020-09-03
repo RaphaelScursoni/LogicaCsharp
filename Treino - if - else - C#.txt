@@ -1,0 +1,21 @@
+using System;
+
+namespace treino_inicial {
+    class Program {
+        static void Main(string[] args) {
+
+            int num1 = int.Parse(Console.ReadLine());
+
+            if(num1 < 0) {
+                Console.WriteLine("Negativo");
+            }
+            else if(num1 <= 0){
+                Console.WriteLine("Neutro");
+            }
+            else if(num1 > 0){
+                Console.WriteLine("Positivo");
+            }
+
+        }
+    }
+}

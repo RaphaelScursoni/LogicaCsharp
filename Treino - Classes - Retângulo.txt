@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace treino {
+    class Retangulo {
+
+        public double Largura;
+        public double Altura;
+
+        public double Area() {
+            return Largura * Altura;
+        }
+
+        public double Perimetro() {
+            return Largura + Largura + Altura + Altura;
+        }
+
+        public double Diagonal() {
+            return Math.Sqrt((Largura * Largura) + (Altura * Altura));
+        }
+
+    }
+}
+
+using System;
+using System.Globalization;
+
+namespace treino {
+    class Program {
+        static void Main(string[] args) {
+
+            Retangulo x = new Retangulo();
+
+            Console.WriteLine("Informe a Largura do retângulo: ");
+            x.Largura = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.WriteLine("Informe a Altura do retângulo: ");
+            x.Altura = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine("Conforme os dados informados o retângulo possui as seguintes medidas:");
+            Console.WriteLine("Altura: " + x.Altura);
+            Console.WriteLine("Largura: " + x.Largura);
+            Console.WriteLine("Perimetro: " + x.Perimetro().ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Area: " + x.Area().ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("Diagonal: " + x.Diagonal().ToString("F2", CultureInfo.InvariantCulture));
+
+        }
+    }
+}
