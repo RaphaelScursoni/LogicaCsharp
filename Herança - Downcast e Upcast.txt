@@ -1,0 +1,122 @@
+// Program.cs
+
+using System;
+using Treino_Heranca1.Entities;
+
+namespace Treino_Heranca1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Account acc = new Account(1001, "Alex", 0.0);
+            BusinessAccount bacc = new BusinessAccount(1002, "Maria", 0.0, 500.0);
+
+            //UPCASTING Converter a SubClasse (Business and Savings) para a MasterClasse (Account)
+
+            Account acc1 = bacc;
+            Account acc2 = new BusinessAccount(1003, "Bob", 0.0, 200);
+            Account acc3 = new SavingsAccount(1004, "Ana", 0.0, 0.01);
+
+            // DOWNCASTING Converter a MasterClasse para Subclasses
+
+            BusinessAccount acc4 = (BusinessAccount)acc2;
+            acc4.Loan(100.0);
+
+            //BusinessAccount acc5 = (BusinessAccount)acc3;  ERRO
+            if (acc3 is BusinessAccount)
+            {
+                BusinessAccount acc5 = (BusinessAccount)acc3;
+                acc5.Loan(200.0);
+                Console.WriteLine("LOAN!");
+            }
+            if (acc3 is SavingsAccount) 
+            {
+                //SavingsAccount acc5 = (SavingsAccount)acc3;
+                SavingsAccount acc5 = acc3 as SavingsAccount;
+                acc5.UpdateBallance();
+                Console.WriteLine("Update");
+            }
+        }
+    }
+}
+
+
+// BusinessAccount.cs
+
+namespace Treino_Heranca1.Entities
+{
+    class BusinessAccount : Account
+    {
+        public double LoanLimit { get; set; }
+
+        public BusinessAccount() { }
+
+        public BusinessAccount(int number, string holder, double balance, double loanLimit) : base(number, holder, balance)
+        {
+            LoanLimit = loanLimit;
+        }
+
+        public void Loan(double amount) 
+        {
+            if(amount <= LoanLimit)
+            Balance += amount;
+        }
+    }
+}
+
+// Account.cs
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Treino_Heranca1.Entities
+{
+    class Account
+    {
+        public int Number { get; private set; }
+        public string Holder { get; private set; }
+        public double Balance { get; protected set; }
+
+        public Account() { }
+
+        public Account(int number, string holder, double balance)
+        {
+            Number = number;
+            Holder = holder;
+            Balance = balance;
+        }
+
+        public void Withdraw(double amount)
+        {
+            Balance -= amount;
+        }
+
+        public void Deposit(double amount)
+        {
+            Balance += amount;
+        }
+    }
+}
+
+// SavingsAccount.cs
+
+{
+    class SavingsAccount : Account
+    {
+        public double IncreasedRate { get; set; }
+
+        public SavingsAccount() { }
+
+        public SavingsAccount(int number, string holder, double balance, double increasedRate)
+            :base (number, holder, balance)
+        {
+            IncreasedRate = increasedRate;
+        }
+
+        public void UpdateBallance() {
+            Balance += Balance * IncreasedRate;
+        }
+    }
+}
