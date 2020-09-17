@@ -80,6 +80,19 @@ Para atualizar o GitHub com os códigos modificados
 ---------------
 Copiar o repositório do GitHub, inclusive com o histórico de commits:
   git clone <URI do repositório remoto>
-------
+--------------------------------
 Comando para atualizar seu repositório local, receber as atualizações do site para o local.
   git pull origin master
+ ----------------------
+ SEQUÊNCIA DE COMANDOS NO GIT HUB PARA UMA ATUALIZAÇÃO PERFEITA.
+ ---------------------
+ 1. GIT INIT
+ 2. GIT STATUS
+ 3. GIT ADD .
+ 4. GIT COMMIT -M "MENSAGEM"
+ 5. GIT REMOTE ADD ORIGIN https://github.com/RaphaelScursoni/LogicaCsharp
+ 6. GIT PUSH -U ORIGIN MASTER --FORCE 
+ ---------------------
+ ATUALIZAR REPOSITÓRIO ONLINE COM MODIFICAÇÕES
+  - GIT PUSH
+  ------------------------
