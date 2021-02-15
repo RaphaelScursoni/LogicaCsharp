@@ -1,0 +1,23 @@
+string sourcePath = @"C:\Users\convencaoinfo10\source\repos\file1.txt";
+string targetPath = @"C:\Users\convencaoinfo10\source\repos\file2.txt";
+
+            try {
+                FileInfo fileInfo = new FileInfo(sourcePath);
+                fileInfo.CopyTo(targetPath);
+
+ 		string[] lines = File.ReadAllLines(sourcePath);
+                foreach (string line in lines) {
+                    Console.WriteLine(line);
+                }
+//Ler um arquivo e instanciar um vetor através dele
+
+
+            }
+            catch (IOException e) {
+                Console.WriteLine("An error ocurred");
+                Console.WriteLine(e.Message);
+
+            }
+
+//COPIAR TUDO DO FILE1 PARA FILE2
+

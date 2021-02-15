@@ -1,0 +1,19 @@
+// Transformar a leitura de um arquivo
+// em uma escrita de letras maiúsculas
+
+            string sourcepath = @CUsersconvencaoinfo10sourcereposfile1.txt;
+            string targetpath = @CUsersconvencaoinfo10sourcereposfile2.txt;
+            try {
+                string[] lines = File.ReadAllLines(sourcepath);
+
+                using (StreamWriter sw = File.AppendText(targetpath)) {
+                    foreach (string line in lines) {
+                        sw.WriteLine(line.ToUpper());
+                    }
+                }
+            }
+
+            catch (IOException e) {
+                Console.WriteLine(An error ocurred);
+                Console.WriteLine(e.Message);
+            }

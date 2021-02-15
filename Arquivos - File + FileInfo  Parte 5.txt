@@ -1,0 +1,38 @@
+using System.Collections.Generic;
+
+ string path = @"C:\Users\convencaoinfo10\source\repos\myfolder";
+           
+            try {
+
+                //Caminho desejado
+                // Qualquer nome de arquivo . Qualquer extensão "Máscara de busca"
+                //Listar todas as pastas do diretório
+                // Descreverá na tela o caminho de todas as subpastas a partir da pasta original.
+
+                IEnumerable<string> folders = Directory.EnumerateDirectories(path, "*.*", SearchOption.AllDirectories);
+                Console.WriteLine("Folders: ");
+                foreach(string s in folders) {
+                    Console.WriteLine(s);
+
+		//DIRETÓRIO PRIMEIRO.
+		
+
+                IEnumerable<string> files = Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories);
+                Console.WriteLine("Files: ");
+                foreach (string s in files) {
+                    Console.WriteLine(s);
+
+		//ARQUIVOS DEPOIS.
+
+
+                Directory.CreateDirectory(path + "\\newfolder");
+		//CRIAR NOVA PASTA NO MESMO DIRETÓRIO
+                }
+               
+            }
+
+            catch (IOException e) {
+                Console.WriteLine("An error ocurred");
+                Console.WriteLine(e.Message);
+            }
+------------------------------------------------------------------

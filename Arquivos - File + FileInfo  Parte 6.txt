@@ -1,0 +1,18 @@
+string path = @"C:\Users\convencaoinfo10\source\repos\file3.txt";
+           
+            try {
+
+                Console.WriteLine("GetDirectoryName :" + Path.GetDirectoryName(path));
+                Console.WriteLine("PathSeparator :" + Path.PathSeparator);
+                Console.WriteLine("DirectorySeparatorChar :" + Path.DirectorySeparatorChar);
+                Console.WriteLine("GetFileName: " + Path.GetFileName(path));
+                Console.WriteLine("GetFileNameWithoutExtension: " + Path.GetFileNameWithoutExtension(path));
+                Console.WriteLine("GetFullPath: " + Path.GetFullPath(path));
+                Console.WriteLine("GetTempPath: " + Path.GetTempPath());
+            }
+
+            catch (IOException e) {
+                Console.WriteLine("An error ocurred");
+                Console.WriteLine(e.Message);
+            }
+//APRENDENDO ALGUNS FACILITADORES COM PATH
